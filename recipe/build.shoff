@@ -1,0 +1,3 @@
+$PYTHON setup.py install --with-protobuf-include-dir=$PREFIX/include 
+			 --with-protobuf-lib-dir=$PREFIX/lib 
+			 --with-protoc=$PREFIX/bin/protoc 
