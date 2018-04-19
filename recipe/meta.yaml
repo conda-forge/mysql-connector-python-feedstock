@@ -1,6 +1,6 @@
 {% set name = "mysql-connector-python" %}
-{% set version = "2.2.3" %}
-{% set sha256 = "bc4ccb4c8b375554b8e3568307dfaab5e05b06c2ccdc7061c24957a381421385" %}
+{% set version = "8.0.11" %}
+{% set sha256 = "b6410ae31d5accc21aac046efe57544c2bd72e3005d78a26b3b4d3efbddce242" %}
 
 package:
   name: {{ name|lower }}
