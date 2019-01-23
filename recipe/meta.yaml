@@ -13,21 +13,28 @@ source:
 
 build:
   number: 0
-  script: python setup.py install --with-protobuf-include-dir=$PREFIX/include --with-protobuf-lib-dir=$PREFIX/lib --with-protoc=$PREFIX/bin/protoc  # [linux or osx]
-  script: python setup.py install --with-protobuf-include-dir=%LIBRARY_INC% --with-protobuf-lib-dir=%LIBRARY_LIB% --with-protoc=%LIBRARY_BIN%/protoc.exe  # [win]
-
+  script: python setup.py install --with-protobuf-include-dir=$PREFIX/include --with-protobuf-lib-dir=$PREFIX/lib --with-protoc=$PREFIX/bin/protoc --with-mysql-capi=$PREFIX  # [unix]
+  script: python setup.py install --with-protobuf-include-dir=%LIBRARY_INC% --with-protobuf-lib-dir=%LIBRARY_LIB% --with-protoc=%LIBRARY_BIN%/protoc.exe --with-mysql-capi=%LIBRARY_PREFIX%  # [win]
 
 requirements:
   build:
-    - protobuf
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
     - python
+    - mysql-connector-c
+    - libprotobuf
+    - protobuf >=3.0.0
   run:
-    - protobuf
     - python
+    - protobuf >=3.0.0
 
 test:
   imports:
+    - mysql
     - mysql.connector
+    - mysqlx
+    - mysqlx.protobuf
 
 about:
   home: https://dev.mysql.com/doc/connector-python/en/
