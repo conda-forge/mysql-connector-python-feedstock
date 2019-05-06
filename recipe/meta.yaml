@@ -13,6 +13,7 @@ source:
   patches:
     - 0001-Typecast-password-to-const-char-explicitly-py3.patch
     - 0002-Cast-uint-to-enum-mysql_enum_shutdown_level-explicit.patch
+    - 0001-wtf2.patch
 
 build:
   number: 0

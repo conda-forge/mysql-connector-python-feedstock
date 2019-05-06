@@ -1,0 +1,34 @@
+From 25c45256829c7664ff045bff8a22307803462884 Mon Sep 17 00:00:00 2001
+From: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date: Mon, 6 May 2019 10:27:09 +0530
+Subject: [PATCH] wtf2
+
+---
+ lib/cpy_distutils.py | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/lib/cpy_distutils.py b/lib/cpy_distutils.py
+index 4bc6056..3d16759 100644
+--- a/lib/cpy_distutils.py
++++ b/lib/cpy_distutils.py
+@@ -315,11 +315,17 @@ def get_git_info():
+         proc.communicate()
+         is_git_repo = proc.returncode == 0
+ 
++    print("am i a git repo?  ", is_git_repo)
++    cmdi = ["git", "--version"]
++    proci = Popen(cmdi, stdout=PIPE, universal_newlines=True)
++    stdouti, _ = proci.communicate()
++    print("stdout1 is ", stdouti)
+     if is_git_repo:
+         cmd = ["git", "log", "-n", "1", "--date=iso",
+                "--pretty=format:'branch=%D&date=%ad&commit=%H&short=%h'"]
+         proc = Popen(cmd, stdout=PIPE, universal_newlines=True)
+         stdout, _ = proc.communicate()
++        print("stdout2 is ", stdout)
+         git_info = dict(parse_qsl(stdout.replace("'", "").replace("+", "%2B")
+                                   .split(",")[-1:][0].strip()))
+         git_info["branch"] = stdout.split(",")[0].split("->")[1].strip()
+-- 
+2.20.1
+
