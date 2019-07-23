@@ -1,6 +1,6 @@
 {% set name = "mysql-connector-python" %}
-{% set version = "8.0.16" %}
-{% set sha256 = "00c2440bd7ce4db8fd78ac0176fa03d8aaf7d18d9f70ba7fcf61ebf02f21873b" %}
+{% set version = "8.0.17" %}
+{% set sha256 = "91764ceb74b0f14c96972e65553322ea5d47d4c48272a02e062ecf982f53d811" %}
 
 package:
   name: {{ name|lower }}
@@ -16,11 +16,10 @@ source:
     - 0003-Don-t-error-out-if-get_git_info-fails.patch
 
 build:
-  number: 1
+  number: 0
   # VS 2008 is not supported for libprotobuf
   skip: True  # [win and py2k]
-  # https://bugs.python.org/issue1222585
-  script: CC=$CXX CFLAGS=$CXXFLAGS python setup.py install --with-protobuf-include-dir=$PREFIX/include --with-protobuf-lib-dir=$PREFIX/lib --with-protoc=$PREFIX/bin/protoc --with-mysql-capi=$PREFIX  # [unix]
+  script: python setup.py install --with-protobuf-include-dir=$PREFIX/include --with-protobuf-lib-dir=$PREFIX/lib --with-protoc=$PREFIX/bin/protoc --with-mysql-capi=$PREFIX  # [unix]
   script: python setup.py install --with-protobuf-include-dir=%LIBRARY_INC% --with-protobuf-lib-dir=%LIBRARY_LIB% --with-protoc=%LIBRARY_BIN%/protoc.exe --with-mysql-capi=%LIBRARY_PREFIX% --extra-compile-args=/DPROTOBUF_USE_DLLS  # [win]
 
 
