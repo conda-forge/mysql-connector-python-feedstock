@@ -1,4 +1,4 @@
-From fd396a57de1f077b8697b5c49c16088ce860f316 Mon Sep 17 00:00:00 2001
+From 42aca5662248c044756efe788b08774b3dcd3031 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 6 May 2019 10:27:09 +0530
 Subject: [PATCH 3/3] Don't error out if get_git_info() fails
@@ -8,10 +8,10 @@ Subject: [PATCH 3/3] Don't error out if get_git_info() fails
  1 file changed, 6 insertions(+), 1 deletion(-)
 
 diff --git a/lib/cpy_distutils.py b/lib/cpy_distutils.py
-index 4bc6056..c16ed54 100644
+index bfefb83..08ae997 100644
 --- a/lib/cpy_distutils.py
 +++ b/lib/cpy_distutils.py
-@@ -685,7 +685,12 @@ class BuildExtDynamic(build_ext):
+@@ -697,7 +697,12 @@ class BuildExtDynamic(build_ext):
      def run(self):
          """Run the command"""
          # Generate docs/INFO_SRC
@@ -26,5 +26,5 @@ index 4bc6056..c16ed54 100644
              with open(os.path.join("docs", "INFO_SRC"), "w") as info_src:
                  info_src.write("version: {}\n".format(VERSION_TEXT))
 -- 
-2.20.1
+2.23.0
 
