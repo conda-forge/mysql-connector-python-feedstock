@@ -16,7 +16,7 @@ source:
     - 0003-Don-t-error-out-if-get_git_info-fails.patch
 
 build:
-  number: 0
+  number: 1
   # VS 2008 is not supported for libprotobuf
   skip: True  # [win and py2k]
   script: python setup.py install --with-protobuf-include-dir=$PREFIX/include --with-protobuf-lib-dir=$PREFIX/lib --with-protoc=$PREFIX/bin/protoc --with-mysql-capi=$PREFIX  # [unix]
