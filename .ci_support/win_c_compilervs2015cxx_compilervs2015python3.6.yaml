@@ -7,10 +7,8 @@ channel_targets:
 cxx_compiler:
 - vs2015
 libprotobuf:
-- '3.10'
+- '3.11'
 pin_run_as_build:
-  libprotobuf:
-    max_pin: x.x
   python:
     min_pin: x.x
     max_pin: x.x
