@@ -1,6 +1,6 @@
 {% set name = "mysql-connector-python" %}
-{% set version = "8.0.18" %}
-{% set sha256 = "f1206645f2c373f229b69c0847463363345e67b5e1e0c6d873c6f7a135552341" %}
+{% set version = "8.0.19" %}
+{% set sha256 = "5a9fba7e26f8d54d008f2dacfd31464f479b004e9e367e1ed0dd18d7cfef4e7c" %}
 
 package:
   name: {{ name|lower }}
@@ -16,7 +16,7 @@ source:
     - 0003-Don-t-error-out-if-get_git_info-fails.patch
 
 build:
-  number: 2
+  number: 0
   # VS 2008 is not supported for libprotobuf
   skip: True  # [win and py2k]
   script: python setup.py install --with-protobuf-include-dir=$PREFIX/include --with-protobuf-lib-dir=$PREFIX/lib --with-protoc=$PREFIX/bin/protoc --with-mysql-capi=$PREFIX  # [unix]
