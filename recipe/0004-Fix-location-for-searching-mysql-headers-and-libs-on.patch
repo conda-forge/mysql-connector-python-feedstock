@@ -1,0 +1,44 @@
+From ca893413e295f13ecebcc44399d6736928b8b2f3 Mon Sep 17 00:00:00 2001
+From: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date: Tue, 23 Jun 2020 17:36:57 -0400
+Subject: [PATCH 4/4] Fix location for searching mysql headers and libs on
+ Windows
+
+---
+ lib/cpy_distutils.py | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/lib/cpy_distutils.py b/lib/cpy_distutils.py
+index 423bc64..73b514d 100644
+--- a/lib/cpy_distutils.py
++++ b/lib/cpy_distutils.py
+@@ -468,7 +468,7 @@ class BuildExtDynamic(build_ext):
+                 log.debug("# connc_loc: {0}".format(connc_loc))
+             else:
+                 # Probably using MS Windows
+-                myversionh = os.path.join(connc_loc, 'include',
++                myversionh = os.path.join(connc_loc, 'include', 'mysql',
+                                           'mysql_version.h')
+ 
+                 if not os.path.exists(myversionh):
+@@ -489,7 +489,7 @@ class BuildExtDynamic(build_ext):
+ 
+                 # On Windows we check libmysql.dll
+                 if os.name == 'nt':
+-                    lib = os.path.join(self.with_mysql_capi, 'lib',
++                    lib = os.path.join(self.with_mysql_capi, 'bin',
+                                        'libmysql.dll')
+                     connc_64bit = win_dll_is64bit(lib)
+                 # On OSX we check libmysqlclient.dylib
+@@ -503,7 +503,7 @@ class BuildExtDynamic(build_ext):
+                 else:
+                     raise OSError("Unsupported platform: %s" % os.name)
+ 
+-                include_dirs = [os.path.join(connc_loc, 'include')]
++                include_dirs = [os.path.join(connc_loc, 'include', 'mysql')]
+                 if os.name == 'nt':
+                     libraries = ['libmysql']
+                 else:
+-- 
+2.21.1
+
