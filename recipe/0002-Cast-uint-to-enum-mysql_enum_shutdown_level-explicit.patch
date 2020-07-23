@@ -1,7 +1,7 @@
-From 29395de99b306a5abffc075aab81e63e9468a99f Mon Sep 17 00:00:00 2001
+From b2a788eb527062699bd04231312362e8e2b7c9d6 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 19 Aug 2018 13:54:06 -0500
-Subject: [PATCH 2/3] Cast uint to enum mysql_enum_shutdown_level explicitly
+Subject: [PATCH 2/4] Cast uint to enum mysql_enum_shutdown_level explicitly
 
 src/mysql_capi.c:2653:10: error: no matching function for call to
 'mysql_shutdown'
@@ -16,10 +16,10 @@ int             STDCALL mysql_shutdown(MYSQL *mysql,
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/src/mysql_capi.c b/src/mysql_capi.c
-index 731a325..c8522fd 100644
+index 27de3ae..b0f8d98 100644
 --- a/src/mysql_capi.c
 +++ b/src/mysql_capi.c
-@@ -2762,7 +2762,7 @@ MySQL_shutdown(MySQL *self, PyObject *args)
+@@ -2788,7 +2788,7 @@ MySQL_shutdown(MySQL *self, PyObject *args)
      }
  
      Py_BEGIN_ALLOW_THREADS
@@ -29,5 +29,5 @@ index 731a325..c8522fd 100644
  
      if (res)
 -- 
-2.23.0
+2.26.2
 
