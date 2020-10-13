@@ -51,7 +51,7 @@ test:
 
 about:
   home: https://dev.mysql.com/doc/connector-python/en/
-  license: GPL-2.0
+  license: GPL-2.0-or-later WITH Universal-FOSS-exception-1.0
   license_family: GPL
   license_file: LICENSE.txt
   summary: Python driver for communicating with MySQL servers
