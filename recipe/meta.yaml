@@ -17,7 +17,7 @@ source:
     - 0004-Fix-location-for-searching-mysql-headers-and-libs-on.patch
 
 build:
-  number: 1
+  number: 2
   # VS 2008 is not supported for libprotobuf
   skip: true  # [win and py2k]
   script: python setup.py install --with-protobuf-include-dir=$PREFIX/include --with-protobuf-lib-dir=$PREFIX/lib --with-protoc=$PREFIX/bin/protoc --with-mysql-capi=$PREFIX  # [unix]
@@ -51,7 +51,7 @@ test:
 
 about:
   home: https://dev.mysql.com/doc/connector-python/en/
-  license: GPL-2.0
+  license: GPL-2.0-or-later WITH Universal-FOSS-exception-1.0
   license_family: GPL
   license_file: LICENSE.txt
   summary: Python driver for communicating with MySQL servers
