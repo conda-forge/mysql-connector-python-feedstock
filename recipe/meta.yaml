@@ -13,8 +13,6 @@ source:
   patches:
     - 0001-Typecast-password-to-const-char-explicitly-py3.patch
     - 0002-Cast-uint-to-enum-mysql_enum_shutdown_level-explicit.patch
-    - 0003-Don-t-error-out-if-get_git_info-fails.patch
-    - 0004-Fix-location-for-searching-mysql-headers-and-libs-on.patch
 
 build:
   number: 0
