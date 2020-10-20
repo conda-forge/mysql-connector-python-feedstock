@@ -1,0 +1,40 @@
+From 7cd3b39ac52bdc30df82d7dc5b70f454e07e5914 Mon Sep 17 00:00:00 2001
+From: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date: Tue, 20 Oct 2020 10:56:46 -0400
+Subject: [PATCH 3/3] Fix location for searching mysql headers and libs on
+ Windows
+
+---
+ cpydist/utils.py | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/cpydist/utils.py b/cpydist/utils.py
+index 19590a0..caebf7d 100644
+--- a/cpydist/utils.py
++++ b/cpydist/utils.py
+@@ -154,7 +154,7 @@ def _mysql_c_api_info_win(mysql_capi):
+         dict: A dict containing the information about the last commit.
+     """
+     info = {}
+-    mysql_version_h = os.path.join(mysql_capi, "include", "mysql_version.h")
++    mysql_version_h = os.path.join(mysql_capi, "include", "mysql", "mysql_version.h")
+ 
+     if not os.path.exists(mysql_version_h):
+         LOGGER.error("Invalid MySQL C API installation "
+@@ -176,11 +176,11 @@ def _mysql_c_api_info_win(mysql_capi):
+ 
+     info["libraries"] = ["libmysql"]
+     info["library_dirs"] = [os.path.join(mysql_capi, "lib")]
+-    info["include_dirs"] = [os.path.join(mysql_capi, "include")]
++    info["include_dirs"] = [os.path.join(mysql_capi, "include", "mysql")]
+ 
+     # Get libmysql.dll arch
+     connc_64bit = _win_dll_is64bit(
+-        os.path.join(mysql_capi, "lib", "libmysql.dll"))
++        os.path.join(mysql_capi, "bin", "libmysql.dll"))
+     LOGGER.debug("connc_64bit: {0}".format(connc_64bit))
+     info["arch"] = "x86_64" if connc_64bit else "i386"
+ 
+-- 
+2.26.2
+
