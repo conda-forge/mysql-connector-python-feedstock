@@ -14,6 +14,7 @@ source:
     - 0001-Typecast-password-to-const-char-explicitly-py3.patch
     - 0002-Cast-uint-to-enum-mysql_enum_shutdown_level-explicit.patch
     - 0003-Fix-location-for-searching-mysql-headers-and-libs-on.patch
+    - 0004-Honor-extra_compile_args-for-_mysqlxpb-extension-too.patch
 
 build:
   number: 0
