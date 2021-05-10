@@ -1,6 +1,6 @@
 {% set name = "mysql-connector-python" %}
-{% set version = "8.0.23" %}
-{% set sha256 = "e8f131ec91cc9060ed7069a674bad40978fe23b2e507ea29619fe179beb836c6" %}
+{% set version = "8.0.24" %}
+{% set sha256 = "590b8f8471f6a72a817bad437b3cb09ddea24e988663c643adaf3a7b4ebbd514" %}
 
 package:
   name: {{ name|lower }}
@@ -15,9 +15,10 @@ source:
     - 0002-Cast-uint-to-enum-mysql_enum_shutdown_level-explicit.patch
     - 0003-Fix-location-for-searching-mysql-headers-and-libs-on.patch
     - 0004-Fix-indentation-for-common-flags.patch
+    - 0005-Revert-Fix-MacOS-wheels-platform-tag.patch
 
 build:
-  number: 2
+  number: 0
   # VS 2008 is not supported for libprotobuf
   skip: true  # [win and py2k]
   script: python setup.py install --with-protobuf-include-dir=$PREFIX/include --with-protobuf-lib-dir=$PREFIX/lib --with-protoc=$PREFIX/bin/protoc --with-mysql-capi=$PREFIX  # [unix]
