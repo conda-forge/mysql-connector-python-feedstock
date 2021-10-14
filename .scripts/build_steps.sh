@@ -27,6 +27,10 @@ conda-build:
 CONDARC
 BUILD_CMD=build
 
+conda list
+
+conda update ca-certificates -y -c conda-forge
+
 curl -vvv -sLO https://github.com/mysql/mysql-connector-python/archive/8.0.25.tar.gz
 
 conda install --yes --quiet "conda-forge-ci-setup=3" conda-build pip ${GET_BOA:-} -c conda-forge
