@@ -7,9 +7,8 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://github.com/mysql/mysql-connector-python/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  git_url: https://github.com/mysql/mysql-connector-python
+  git_rev: {{ version }}
   patches:
     - 0001-Typecast-password-to-const-char-explicitly-py3.patch
     - 0002-Cast-uint-to-enum-mysql_enum_shutdown_level-explicit.patch
@@ -18,7 +17,7 @@ source:
     - 0005-Revert-Fix-MacOS-wheels-platform-tag.patch
 
 build:
-  number: 0
+  number: 1
   # VS 2008 is not supported for libprotobuf
   skip: true  # [win and py2k]
   script: python setup.py install --with-protobuf-include-dir=$PREFIX/include --with-protobuf-lib-dir=$PREFIX/lib --with-protoc=$PREFIX/bin/protoc --with-mysql-capi=$PREFIX  # [unix]
