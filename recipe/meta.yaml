@@ -18,7 +18,7 @@ source:
     - 0005-Revert-Fix-MacOS-wheels-platform-tag.patch
 
 build:
-  number: 0
+  number: 1
   # VS 2008 is not supported for libprotobuf
   skip: true  # [win and py2k]
   script: python setup.py install --with-protobuf-include-dir=$PREFIX/include --with-protobuf-lib-dir=$PREFIX/lib --with-protoc=$PREFIX/bin/protoc --with-mysql-capi=$PREFIX  # [unix]
