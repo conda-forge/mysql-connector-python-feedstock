@@ -1,4 +1,4 @@
-From 11edfab4ffb24fa7d6033aeb3a42f3bc5e13e9c7 Mon Sep 17 00:00:00 2001
+From dff9f75ce919f00f420c974a9104f8a265b2b061 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 10 May 2021 07:20:17 -0400
 Subject: [PATCH 5/5] Revert "Fix MacOS wheels platform tag"
@@ -9,7 +9,7 @@ This reverts commit d1e89fd3d7391084cdf35b0806cb5d2a4b413654.
  1 file changed, 1 insertion(+), 4 deletions(-)
 
 diff --git a/cpydist/__init__.py b/cpydist/__init__.py
-index 0e7f341..2619d7a 100644
+index 47e33af..2b13e27 100644
 --- a/cpydist/__init__.py
 +++ b/cpydist/__init__.py
 @@ -41,7 +41,7 @@ from distutils.command.install import install
@@ -32,5 +32,5 @@ index 0e7f341..2619d7a 100644
      ("byte-code-only", None,
       "remove Python .py files; leave byte code .pyc only"),
 -- 
-2.29.2
+2.33.0
 

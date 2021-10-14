@@ -1,7 +1,7 @@
-From a94227ff0b79eaa8d8a195fc591017de2a8c621e Mon Sep 17 00:00:00 2001
+From 1c0bd45a845427cbcf6d8fbbc02a12e9dfaee12f Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Tue, 20 Oct 2020 10:56:46 -0400
-Subject: [PATCH 3/3] Fix location for searching mysql headers and libs on
+Subject: [PATCH 3/5] Fix location for searching mysql headers and libs on
  Windows
 
 ---
@@ -10,10 +10,10 @@ Subject: [PATCH 3/3] Fix location for searching mysql headers and libs on
  2 files changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/cpydist/__init__.py b/cpydist/__init__.py
-index 4592dda..f72471a 100644
+index 0e7f341..dfcfac7 100644
 --- a/cpydist/__init__.py
 +++ b/cpydist/__init__.py
-@@ -346,7 +346,7 @@ class BuildExt(build_ext, BaseCommand):
+@@ -369,7 +369,7 @@ class BuildExt(build_ext, BaseCommand):
              mysql_version = "{}.{}.{}".format(*self._mysql_info["version"][:3])
          elif os.name == "nt" and os.path.isdir(self.with_mysql_capi):
              mysql_version_h = os.path.join(self.with_mysql_capi,
@@ -23,10 +23,10 @@ index 4592dda..f72471a 100644
              with open(mysql_version_h, "rb") as fp:
                  for line in fp.readlines():
 diff --git a/cpydist/utils.py b/cpydist/utils.py
-index 19590a0..caebf7d 100644
+index 1fe16c3..2801504 100644
 --- a/cpydist/utils.py
 +++ b/cpydist/utils.py
-@@ -154,7 +154,7 @@ def _mysql_c_api_info_win(mysql_capi):
+@@ -153,7 +153,7 @@ def _mysql_c_api_info_win(mysql_capi):
          dict: A dict containing the information about the last commit.
      """
      info = {}
@@ -35,7 +35,7 @@ index 19590a0..caebf7d 100644
  
      if not os.path.exists(mysql_version_h):
          LOGGER.error("Invalid MySQL C API installation "
-@@ -176,11 +176,11 @@ def _mysql_c_api_info_win(mysql_capi):
+@@ -175,11 +175,11 @@ def _mysql_c_api_info_win(mysql_capi):
  
      info["libraries"] = ["libmysql"]
      info["library_dirs"] = [os.path.join(mysql_capi, "lib")]
@@ -50,5 +50,5 @@ index 19590a0..caebf7d 100644
      info["arch"] = "x86_64" if connc_64bit else "i386"
  
 -- 
-2.28.0
+2.33.0
 
