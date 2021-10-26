@@ -7,8 +7,9 @@ package:
   version: {{ version }}
 
 source:
-  git_url: https://github.com/mysql/mysql-connector-python
-  git_rev: {{ version }}
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://github.com/mysql/mysql-connector-python/archive/{{ version }}.tar.gz
+  sha256: {{ sha256 }}
   patches:
     - 0001-Typecast-password-to-const-char-explicitly-py3.patch
     - 0002-Cast-uint-to-enum-mysql_enum_shutdown_level-explicit.patch
