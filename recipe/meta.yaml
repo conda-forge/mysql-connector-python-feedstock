@@ -10,11 +10,11 @@ source:
   url: https://github.com/mysql/mysql-connector-python/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-    - 0001-Typecast-password-to-const-char-explicitly-py3.patch
-    - 0002-Cast-uint-to-enum-mysql_enum_shutdown_level-explicit.patch
-    - 0003-Fix-location-for-searching-mysql-headers-and-libs-on.patch
-    - 0004-Fix-indentation-for-common-flags.patch
-    - 0005-Revert-Fix-MacOS-wheels-platform-tag.patch
+    - patches/0001-Typecast-password-to-const-char-explicitly-py3.patch
+    - patches/0002-Cast-uint-to-enum-mysql_enum_shutdown_level-explicit.patch
+    - patches/0003-Fix-location-for-searching-mysql-headers-and-libs-on.patch
+    - patches/0004-Fix-indentation-for-common-flags.patch
+    - patches/0005-Revert-Fix-MacOS-wheels-platform-tag.patch
 
 build:
   number: 0
