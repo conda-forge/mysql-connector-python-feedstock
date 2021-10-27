@@ -1,0 +1,33 @@
+From 9bd418c295c9c1b2215a85389db1424d4cfd7991 Mon Sep 17 00:00:00 2001
+From: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date: Tue, 26 Oct 2021 19:21:49 -0400
+Subject: [PATCH 6/6] Use g{cc,++} only as a fallback if $CC/$CXX are
+ unavailable
+
+---
+ cpydist/__init__.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/cpydist/__init__.py b/cpydist/__init__.py
+index f3ad5a2..8c1cca1 100644
+--- a/cpydist/__init__.py
++++ b/cpydist/__init__.py
+@@ -652,13 +652,13 @@ class BuildExt(build_ext, BaseCommand):
+                 ext.extra_compile_args.append("-Wno-unknown-pragmas")
+ 
+         if os.name != "nt":
+-            cmd_gcc_ver = ["gcc", "-v"]
++            cmd_gcc_ver = [os.environ.get("CC", "gcc"), "-v"]
+             self.log.info("Executing: {0}"
+                           "".format(" ".join(cmd_gcc_ver)))
+             proc = Popen(cmd_gcc_ver, stdout=PIPE,
+                          universal_newlines=True)
+             self.log.info(proc.communicate())
+-            cmd_gpp_ver = ["g++", "-v"]
++            cmd_gpp_ver = [os.environ.get("CXX", "g++"), "-v"]
+             self.log.info("Executing: {0}"
+                           "".format(" ".join(cmd_gcc_ver)))
+             proc = Popen(cmd_gpp_ver, stdout=PIPE,
+-- 
+2.31.1
+
