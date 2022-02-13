@@ -21,7 +21,7 @@ build:
   number: 0
   # VS 2008 is not supported for libprotobuf
   skip: true  # [win and py2k]
-  script: python setup.py install --with-protobuf-include-dir=$PREFIX/include --with-protobuf-lib-dir=$PREFIX/lib --with-protoc=$PREFIX/bin/protoc --with-mysql-capi=$PREFIX  # [unix]
+  script: python setup.py install --with-protobuf-include-dir=$PREFIX/include --with-protobuf-lib-dir=$PREFIX/lib --with-protoc=$BUILD_PREFIX/bin/protoc --with-mysql-capi=$PREFIX  # [unix]
   script: python setup.py install --with-protobuf-include-dir=%LIBRARY_INC% --with-protobuf-lib-dir=%LIBRARY_LIB% --with-protoc=%LIBRARY_BIN%/protoc.exe --with-mysql-capi=%LIBRARY_PREFIX% --extra-compile-args=/DPROTOBUF_USE_DLLS  # [win]
 
 
@@ -31,6 +31,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - libprotobuf
 
   host:
     - python
