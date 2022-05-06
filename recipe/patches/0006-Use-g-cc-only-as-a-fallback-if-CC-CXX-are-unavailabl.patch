@@ -1,4 +1,4 @@
-From 9bd418c295c9c1b2215a85389db1424d4cfd7991 Mon Sep 17 00:00:00 2001
+From 88eedfce34c2a8a867663c9b4c2fcac0feddbba9 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Tue, 26 Oct 2021 19:21:49 -0400
 Subject: [PATCH 6/6] Use g{cc,++} only as a fallback if $CC/$CXX are
@@ -9,10 +9,10 @@ Subject: [PATCH 6/6] Use g{cc,++} only as a fallback if $CC/$CXX are
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/cpydist/__init__.py b/cpydist/__init__.py
-index f3ad5a2..8c1cca1 100644
+index 25c8f3f..b08e9c7 100644
 --- a/cpydist/__init__.py
 +++ b/cpydist/__init__.py
-@@ -652,13 +652,13 @@ class BuildExt(build_ext, BaseCommand):
+@@ -651,13 +651,13 @@ class BuildExt(build_ext, BaseCommand):
                  ext.extra_compile_args.append("-Wno-unknown-pragmas")
  
          if os.name != "nt":
@@ -29,5 +29,5 @@ index f3ad5a2..8c1cca1 100644
                            "".format(" ".join(cmd_gcc_ver)))
              proc = Popen(cmd_gpp_ver, stdout=PIPE,
 -- 
-2.31.1
+2.33.1
 
