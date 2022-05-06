@@ -1,7 +1,7 @@
-From 0137d4250e6d4ccdc0d34e786c76a008101c6485 Mon Sep 17 00:00:00 2001
+From 78c83b746a0da2b7d79439b8795e2dc781bc69ab Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Tue, 20 Oct 2020 10:56:46 -0400
-Subject: [PATCH 3/5] Fix location for searching mysql headers and libs on
+Subject: [PATCH 3/6] Fix location for searching mysql headers and libs on
  Windows
 
 ---
@@ -10,10 +10,10 @@ Subject: [PATCH 3/5] Fix location for searching mysql headers and libs on
  2 files changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/cpydist/__init__.py b/cpydist/__init__.py
-index ba018ea..67a69b3 100644
+index d3f3c6e..b0096f0 100644
 --- a/cpydist/__init__.py
 +++ b/cpydist/__init__.py
-@@ -452,7 +452,7 @@ class BuildExt(build_ext, BaseCommand):
+@@ -451,7 +451,7 @@ class BuildExt(build_ext, BaseCommand):
              mysql_version = "{}.{}.{}".format(*self._mysql_info["version"][:3])
          elif os.name == "nt" and os.path.isdir(self.with_mysql_capi):
              mysql_version_h = os.path.join(self.with_mysql_capi,
@@ -23,7 +23,7 @@ index ba018ea..67a69b3 100644
              with open(mysql_version_h, "rb") as fp:
                  for line in fp.readlines():
 diff --git a/cpydist/utils.py b/cpydist/utils.py
-index 0b4d0c2..2744bb3 100644
+index ff85f3e..3168f3a 100644
 --- a/cpydist/utils.py
 +++ b/cpydist/utils.py
 @@ -153,7 +153,7 @@ def _mysql_c_api_info_win(mysql_capi):
@@ -50,5 +50,5 @@ index 0b4d0c2..2744bb3 100644
      info["arch"] = "x86_64" if connc_64bit else "i386"
      LOGGER.debug("# _mysql_c_api_info_win info: %s", info)
 -- 
-2.31.1
+2.33.1
 

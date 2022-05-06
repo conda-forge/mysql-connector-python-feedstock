@@ -1,17 +1,17 @@
-From b4cebac0e7db2fd5725b81e2be9848cb03930e41 Mon Sep 17 00:00:00 2001
+From ad3bb3cde67ef29bff7fe8612136f352fce8c03a Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Tue, 20 Oct 2020 13:16:22 -0400
-Subject: [PATCH 4/5] Fix indentation for common flags
+Subject: [PATCH 4/6] Fix indentation for common flags
 
 ---
  cpydist/__init__.py | 50 ++++++++++++++++++++++-----------------------
  1 file changed, 25 insertions(+), 25 deletions(-)
 
 diff --git a/cpydist/__init__.py b/cpydist/__init__.py
-index 67a69b3..d7e788a 100644
+index b0096f0..cd3c766 100644
 --- a/cpydist/__init__.py
 +++ b/cpydist/__init__.py
-@@ -625,31 +625,31 @@ class BuildExt(build_ext, BaseCommand):
+@@ -624,31 +624,31 @@ class BuildExt(build_ext, BaseCommand):
                          "The '_mysql_connector' C extension will not be built")
                      disabled.append(ext)
                      continue
@@ -23,7 +23,7 @@ index 67a69b3..d7e788a 100644
 -                if self.extra_link_args:
 -                    ext.extra_link_args.extend(self.extra_link_args.split())
 -                # Add -rpath if the platform is Linux
--                if platform.system() == "Linux":
+-                if platform.system() == "Linux" and not self.skip_vendor:
 -                    ext.extra_link_args.extend([
 -                        "-Wl,-rpath,$ORIGIN/mysql/vendor"])
 -                # Add include dirs
@@ -48,7 +48,7 @@ index 67a69b3..d7e788a 100644
 +            if self.extra_link_args:
 +                ext.extra_link_args.extend(self.extra_link_args.split())
 +            # Add -rpath if the platform is Linux
-+            if platform.system() == "Linux":
++            if platform.system() == "Linux" and not self.skip_vendor:
 +                ext.extra_link_args.extend([
 +                    "-Wl,-rpath,$ORIGIN/mysql/vendor"])
 +            # Add include dirs
@@ -69,5 +69,5 @@ index 67a69b3..d7e788a 100644
              if os.name == "posix":
                  ext.extra_compile_args.append("-Wno-unknown-pragmas")
 -- 
-2.31.1
+2.33.1
 
