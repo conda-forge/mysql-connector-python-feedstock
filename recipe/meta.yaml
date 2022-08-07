@@ -1,6 +1,6 @@
 {% set name = "mysql-connector-python" %}
-{% set version = "8.0.29" %}
-{% set sha256 = "3be9ffcc6e3480a459cddb28ca4d8cbe09f6fd5a9513808527d67c46c9007d77" %}
+{% set version = "8.0.30" %}
+{% set sha256 = "7affd476733cf7d70a16c1afa28520beabe9ee76b90568d1563d59b918a5b08a" %}
 
 package:
   name: {{ name|lower }}
@@ -19,7 +19,7 @@ source:
     - patches/0007-Replace-google-protobuf-string-with-std-string.patch
 
 build:
-  number: 2
+  number: 0
   # VS 2008 is not supported for libprotobuf
   skip: true  # [win and py2k]
   script: python setup.py install --with-protobuf-include-dir=$PREFIX/include --with-protobuf-lib-dir=$PREFIX/lib --with-protoc=$BUILD_PREFIX/bin/protoc --with-mysql-capi=$PREFIX  # [unix]
