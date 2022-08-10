@@ -1,7 +1,7 @@
-From 6ccfda6f428b3591e3e19be082d0093096ea6ca6 Mon Sep 17 00:00:00 2001
+From 1f95add7e9ab2e95e198bcef7c4fe0b127dd3f88 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 10 May 2021 07:20:17 -0400
-Subject: [PATCH 5/6] Revert "Fix MacOS wheels platform tag"
+Subject: [PATCH 5/7] Revert "Fix MacOS wheels platform tag"
 
 This reverts commit d1e89fd3d7391084cdf35b0806cb5d2a4b413654.
 ---
@@ -9,19 +9,19 @@ This reverts commit d1e89fd3d7391084cdf35b0806cb5d2a4b413654.
  1 file changed, 1 insertion(+), 4 deletions(-)
 
 diff --git a/cpydist/__init__.py b/cpydist/__init__.py
-index cd3c766..25c8f3f 100644
+index afcdab9..28a1d96 100644
 --- a/cpydist/__init__.py
 +++ b/cpydist/__init__.py
-@@ -42,7 +42,7 @@ from distutils.command.install import install
+@@ -40,7 +40,7 @@ from distutils.command.install import install
  from distutils.command.install_lib import install_lib
  from distutils.core import Command
  from distutils.dir_util import mkpath, remove_tree
 -from distutils.sysconfig import get_config_vars, get_python_version
 +from distutils.sysconfig import get_python_version
  from distutils.version import LooseVersion
- from subprocess import check_call, Popen, PIPE
- 
-@@ -59,9 +59,6 @@ version_py = os.path.join("lib", "mysql", "connector", "version.py")
+ from glob import glob
+ from subprocess import PIPE, Popen, check_call
+@@ -65,9 +65,6 @@ version_py = os.path.join("lib", "mysql", "connector", "version.py")
  with open(version_py, "rb") as fp:
      exec(compile(fp.read(), version_py, "exec"))
  
@@ -29,8 +29,8 @@ index cd3c766..25c8f3f 100644
 -    get_config_vars()["MACOSX_DEPLOYMENT_TARGET"] = "11.0"
 -
  COMMON_USER_OPTIONS = [
-     ("byte-code-only", None,
-      "remove Python .py files; leave byte code .pyc only"),
+     (
+         "byte-code-only",
 -- 
 2.33.1
 

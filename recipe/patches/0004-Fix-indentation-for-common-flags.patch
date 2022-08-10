@@ -1,31 +1,29 @@
-From ad3bb3cde67ef29bff7fe8612136f352fce8c03a Mon Sep 17 00:00:00 2001
+From ad3b1337286eff7e3483ebe0dbf7cd2bcb74287f Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Tue, 20 Oct 2020 13:16:22 -0400
-Subject: [PATCH 4/6] Fix indentation for common flags
+Subject: [PATCH 4/7] Fix indentation for common flags
 
 ---
- cpydist/__init__.py | 50 ++++++++++++++++++++++-----------------------
- 1 file changed, 25 insertions(+), 25 deletions(-)
+ cpydist/__init__.py | 46 ++++++++++++++++++++++-----------------------
+ 1 file changed, 23 insertions(+), 23 deletions(-)
 
 diff --git a/cpydist/__init__.py b/cpydist/__init__.py
-index b0096f0..cd3c766 100644
+index 088e838..afcdab9 100644
 --- a/cpydist/__init__.py
 +++ b/cpydist/__init__.py
-@@ -624,31 +624,31 @@ class BuildExt(build_ext, BaseCommand):
-                         "The '_mysql_connector' C extension will not be built")
+@@ -653,29 +653,29 @@ class BuildExt(build_ext, BaseCommand):
+                     )
                      disabled.append(ext)
                      continue
 -                # Add extra compile args
 -                if self.extra_compile_args:
--                    ext.extra_compile_args.extend(
--                        self.extra_compile_args.split())
+-                    ext.extra_compile_args.extend(self.extra_compile_args.split())
 -                # Add extra link args
 -                if self.extra_link_args:
 -                    ext.extra_link_args.extend(self.extra_link_args.split())
 -                # Add -rpath if the platform is Linux
 -                if platform.system() == "Linux" and not self.skip_vendor:
--                    ext.extra_link_args.extend([
--                        "-Wl,-rpath,$ORIGIN/mysql/vendor"])
+-                    ext.extra_link_args.extend(["-Wl,-rpath,$ORIGIN/mysql/vendor"])
 -                # Add include dirs
 -                if self.with_openssl_include_dir:
 -                    ext.include_dirs.append(self.with_openssl_include_dir)
@@ -42,15 +40,13 @@ index b0096f0..cd3c766 100644
 -                    ext.libraries.extend(self._mysql_info["libraries"])
 +            # Add extra compile args
 +            if self.extra_compile_args:
-+                ext.extra_compile_args.extend(
-+                    self.extra_compile_args.split())
++                ext.extra_compile_args.extend(self.extra_compile_args.split())
 +            # Add extra link args
 +            if self.extra_link_args:
 +                ext.extra_link_args.extend(self.extra_link_args.split())
 +            # Add -rpath if the platform is Linux
 +            if platform.system() == "Linux" and not self.skip_vendor:
-+                ext.extra_link_args.extend([
-+                    "-Wl,-rpath,$ORIGIN/mysql/vendor"])
++                ext.extra_link_args.extend(["-Wl,-rpath,$ORIGIN/mysql/vendor"])
 +            # Add include dirs
 +            if self.with_openssl_include_dir:
 +                ext.include_dirs.append(self.with_openssl_include_dir)

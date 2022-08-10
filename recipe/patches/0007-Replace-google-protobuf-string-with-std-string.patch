@@ -1,4 +1,4 @@
-From 3a8782b79f63c1eb8630ca3d5d7099d6cd54563e Mon Sep 17 00:00:00 2001
+From 3c6352cdd1b6df9355b051283b36dd73ea8e9607 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 29 May 2022 22:41:00 -0400
 Subject: [PATCH 7/7] Replace google::protobuf::string with std::string
