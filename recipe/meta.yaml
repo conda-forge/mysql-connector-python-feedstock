@@ -15,8 +15,7 @@ source:
     - patches/0003-Fix-location-for-searching-mysql-headers-and-libs-on.patch
     - patches/0004-Fix-indentation-for-common-flags.patch
     - patches/0005-Revert-Fix-MacOS-wheels-platform-tag.patch
-    - patches/0006-Use-g-cc-only-as-a-fallback-if-CC-CXX-are-unavailabl.patch
-    - patches/0007-Replace-google-protobuf-string-with-std-string.patch
+    - patches/0006-Replace-google-protobuf-string-with-std-string.patch
 
 build:
   number: 1
