@@ -40,6 +40,7 @@ requirements:
     - mysql-devel {{ version }}
     - libprotobuf
     - protobuf >=3.0.0
+    - zlib
 
   run:
     - python
