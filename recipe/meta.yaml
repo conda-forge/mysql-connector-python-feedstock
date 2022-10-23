@@ -1,6 +1,6 @@
 {% set name = "mysql-connector-python" %}
-{% set version = "8.0.30" %}
-{% set sha256 = "7affd476733cf7d70a16c1afa28520beabe9ee76b90568d1563d59b918a5b08a" %}
+{% set version = "8.0.31" %}
+{% set sha256 = "e6acf5ae9db404c714cf12d5588e074c8d30730a6054c873a8b9ff7641d464ec" %}
 
 package:
   name: {{ name|lower }}
@@ -15,8 +15,7 @@ source:
     - patches/0003-Fix-location-for-searching-mysql-headers-and-libs-on.patch
     - patches/0004-Fix-indentation-for-common-flags.patch
     - patches/0005-Revert-Fix-MacOS-wheels-platform-tag.patch
-    - patches/0006-Use-g-cc-only-as-a-fallback-if-CC-CXX-are-unavailabl.patch
-    - patches/0007-Replace-google-protobuf-string-with-std-string.patch
+    - patches/0006-Replace-google-protobuf-string-with-std-string.patch
 
 build:
   number: 1
