@@ -1,4 +1,4 @@
-From 06a76254223d1f10c2483fc03aea8fd456ddebc5 Mon Sep 17 00:00:00 2001
+From 4e76adfeea3ab5146bf06e2c013827175d2f86f2 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Mon, 10 May 2021 07:20:17 -0400
 Subject: [PATCH 5/6] Revert "Fix MacOS wheels platform tag"
@@ -9,19 +9,19 @@ This reverts commit d1e89fd3d7391084cdf35b0806cb5d2a4b413654.
  1 file changed, 1 insertion(+), 4 deletions(-)
 
 diff --git a/cpydist/__init__.py b/cpydist/__init__.py
-index 220f140..b86164b 100644
+index 9a8ed9a..8f518df 100644
 --- a/cpydist/__init__.py
 +++ b/cpydist/__init__.py
-@@ -40,7 +40,7 @@ from distutils.command.install import install
- from distutils.command.install_lib import install_lib
- from distutils.core import Command
- from distutils.dir_util import mkpath, remove_tree
--from distutils.sysconfig import get_config_vars, get_python_version
-+from distutils.sysconfig import get_python_version
- from distutils.version import LooseVersion
+@@ -38,7 +38,7 @@ import tempfile
  from glob import glob
+ from pathlib import Path
  from subprocess import PIPE, Popen, check_call
-@@ -65,9 +65,6 @@ version_py = os.path.join("lib", "mysql", "connector", "version.py")
+-from sysconfig import get_config_vars, get_python_version
++from sysconfig import get_python_version
+ 
+ from setuptools import Command
+ from setuptools.command.build_ext import build_ext
+@@ -69,9 +69,6 @@ version_py = os.path.join("lib", "mysql", "connector", "version.py")
  with open(version_py, "rb") as fp:
      exec(compile(fp.read(), version_py, "exec"))
  
@@ -32,5 +32,5 @@ index 220f140..b86164b 100644
      (
          "byte-code-only",
 -- 
-2.38.0
+2.33.1
 

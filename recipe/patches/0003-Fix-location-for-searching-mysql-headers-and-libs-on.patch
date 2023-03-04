@@ -1,4 +1,4 @@
-From 92e2260218438df1193f5be90b6de177ed09ce94 Mon Sep 17 00:00:00 2001
+From 00b4668f982a6aeb917d0dd29a38a062f1c2864a Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Tue, 20 Oct 2020 10:56:46 -0400
 Subject: [PATCH 3/6] Fix location for searching mysql headers and libs on
@@ -10,11 +10,11 @@ Subject: [PATCH 3/6] Fix location for searching mysql headers and libs on
  2 files changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/cpydist/__init__.py b/cpydist/__init__.py
-index 8c0d852..5300a05 100644
+index 1fedd55..200ed59 100644
 --- a/cpydist/__init__.py
 +++ b/cpydist/__init__.py
-@@ -476,7 +476,7 @@ class BuildExt(build_ext, BaseCommand):
-             mysql_version = "{}.{}.{}".format(*self._mysql_info["version"][:3])
+@@ -497,7 +497,7 @@ class BuildExt(build_ext, BaseCommand):
+             mysql_version = f"{major}.{minor}.{patch}"
          elif os.name == "nt" and os.path.isdir(self.with_mysql_capi):
              mysql_version_h = os.path.join(
 -                self.with_mysql_capi, "include", "mysql_version.h"
@@ -23,10 +23,10 @@ index 8c0d852..5300a05 100644
              with open(mysql_version_h, "rb") as fp:
                  for line in fp.readlines():
 diff --git a/cpydist/utils.py b/cpydist/utils.py
-index f6fcae9..ea9e9ee 100644
+index 2a08e70..08cd421 100644
 --- a/cpydist/utils.py
 +++ b/cpydist/utils.py
-@@ -155,7 +155,7 @@ def _mysql_c_api_info_win(mysql_capi):
+@@ -157,7 +157,7 @@ def _mysql_c_api_info_win(mysql_capi):
          dict: A dict containing the information about the last commit.
      """
      info = {}
@@ -35,7 +35,7 @@ index f6fcae9..ea9e9ee 100644
  
      if not os.path.exists(mysql_version_h):
          LOGGER.error("Invalid MySQL C API installation (mysql_version.h not found)")
-@@ -178,10 +178,10 @@ def _mysql_c_api_info_win(mysql_capi):
+@@ -179,10 +179,10 @@ def _mysql_c_api_info_win(mysql_capi):
  
      info["libraries"] = ["libmysql"]
      info["library_dirs"] = [os.path.join(mysql_capi, "lib")]
@@ -45,9 +45,9 @@ index f6fcae9..ea9e9ee 100644
      # Get libmysql.dll arch
 -    connc_64bit = _win_dll_is64bit(os.path.join(mysql_capi, "lib", "libmysql.dll"))
 +    connc_64bit = _win_dll_is64bit(os.path.join(mysql_capi, "bin", "libmysql.dll"))
-     LOGGER.debug("connc_64bit: {0}".format(connc_64bit))
+     LOGGER.debug("connc_64bit: %s", connc_64bit)
      info["arch"] = "x86_64" if connc_64bit else "i386"
      LOGGER.debug("# _mysql_c_api_info_win info: %s", info)
 -- 
-2.38.0
+2.33.1
 
