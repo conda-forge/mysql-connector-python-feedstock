@@ -1,11 +1,11 @@
-About mysql-connector-python
-============================
+About mysql-connector-python-feedstock
+======================================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/mysql-connector-python-feedstock/blob/main/LICENSE.txt)
 
 Home: https://dev.mysql.com/doc/connector-python/en/
 
 Package license: GPL-2.0-or-later WITH Universal-FOSS-exception-1.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/mysql-connector-python-feedstock/blob/main/LICENSE.txt)
 
 Summary: Python driver for communicating with MySQL servers
 
