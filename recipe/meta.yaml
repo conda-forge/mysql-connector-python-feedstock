@@ -38,7 +38,7 @@ requirements:
     - setuptools
     - mysql-devel {{ version }}
     - libprotobuf
-    - protobuf >=3.0.0
+    - protobuf >=3.11.0,<=3.20.3
     - zlib
 
   run:
