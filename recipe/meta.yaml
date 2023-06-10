@@ -22,7 +22,7 @@ build:
   # VS 2008 is not supported for libprotobuf
   skip: true  # [win and py2k]
   script: PROTOBUF_INCLUDE_DIR=$PREFIX/include PROTOBUF_LIB_DIR=$PREFIX/lib PROTOC=$BUILD_PREFIX/bin/protoc MYSQL_CAPI=$PREFIX pip install . --no-deps --verbose  # [unix]
-  script: PROTOBUF_INCLUDE_DIR=%LIBRARY_INC% PROTOBUF_LIB_DIR=%LIBRARY_LIB% PROTOC=%LIBRARY_BIN%/protoc.exe MYSQL_CAPI=%LIBRARY_PREFIX% EXTRA_COMPILE_ARGS=/DPROTOBUF_USE_DLLS pip install . --no-deps --verbose  # [win]
+  script: set "PROTOBUF_INCLUDE_DIR=%LIBRARY_INC%" & set "PROTOBUF_LIB_DIR=%LIBRARY_LIB%" & set "PROTOC=%LIBRARY_BIN%/protoc.exe" & set "MYSQL_CAPI=%LIBRARY_PREFIX%" & set "EXTRA_COMPILE_ARGS=/DPROTOBUF_USE_DLLS" & pip install . --no-deps --verbose  # [win]
 
 
 requirements:
