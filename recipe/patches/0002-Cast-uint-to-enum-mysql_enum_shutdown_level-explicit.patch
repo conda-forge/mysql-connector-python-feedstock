@@ -1,4 +1,4 @@
-From 9e70147a039dca040f71beb8b6100db75a61217b Mon Sep 17 00:00:00 2001
+From d976a6ec3d193761c92f0ed18bf793f22620995e Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 19 Aug 2018 13:54:06 -0500
 Subject: [PATCH 2/6] Cast uint to enum mysql_enum_shutdown_level explicitly
@@ -16,10 +16,10 @@ int             STDCALL mysql_shutdown(MYSQL *mysql,
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/src/mysql_capi.c b/src/mysql_capi.c
-index daaa2f9..3b86d66 100644
+index 7a2f6e1..a55acc5 100644
 --- a/src/mysql_capi.c
 +++ b/src/mysql_capi.c
-@@ -2884,7 +2884,7 @@ MySQL_shutdown(MySQL *self, PyObject *args)
+@@ -2899,7 +2899,7 @@ MySQL_shutdown(MySQL *self, PyObject *args)
      }
  
      Py_BEGIN_ALLOW_THREADS
@@ -29,5 +29,5 @@ index daaa2f9..3b86d66 100644
  
      if (res) {
 -- 
-2.38.0
+2.33.1
 
