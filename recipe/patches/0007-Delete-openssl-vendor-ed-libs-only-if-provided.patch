@@ -1,0 +1,25 @@
+From 7c6265f28003f2cde2f2f3a932c0713f8f0ef26b Mon Sep 17 00:00:00 2001
+From: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date: Sat, 10 Jun 2023 09:49:29 +0100
+Subject: [PATCH 7/7] Delete openssl (vendor-ed) libs only if provided
+
+---
+ cpydist/__init__.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cpydist/__init__.py b/cpydist/__init__.py
+index 8f518df..8f62ccb 100644
+--- a/cpydist/__init__.py
++++ b/cpydist/__init__.py
+@@ -230,7 +230,7 @@ class BaseCommand(Command):
+             vendor_folder = os.path.join(os.getcwd(), self.vendor_folder)
+             if os.path.exists(vendor_folder):
+                 shutil.rmtree(vendor_folder)
+-            elif os.name == "nt":
++            elif os.name == "nt" and self.with_openssl_lib_dir:
+                 libssl, libcrypto = self._get_openssl_libs(ext="dll")
+                 libraries = ["libmysql.dll", libssl, libcrypto]
+                 for filename in libraries:
+-- 
+2.33.1
+
