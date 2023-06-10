@@ -43,7 +43,7 @@ requirements:
 
   run:
     - python
-    - protobuf >=3.0.0
+    - protobuf >=3.11.0,<=3.20.3
     - dnspython >=1.16.0
 
 test:
