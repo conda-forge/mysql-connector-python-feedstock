@@ -1,0 +1,26 @@
+From bd049dc8d5fdc140b2d818eeab71aff2d5981266 Mon Sep 17 00:00:00 2001
+From: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date: Sat, 10 Jun 2023 09:49:29 +0100
+Subject: [PATCH 7/7] Get OpenSSL Libs: return early if none
+
+---
+ cpydist/utils.py | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/cpydist/utils.py b/cpydist/utils.py
+index 08cd421..220807d 100644
+--- a/cpydist/utils.py
++++ b/cpydist/utils.py
+@@ -646,6 +646,9 @@ def get_openssl_libs(openssl_lib_dir, ext=None):
+     Returns:
+         tuple: Tuple with libssl and libcrypto filenames.
+     """
++    if openssl_lib_dir is None:
++        return (None, None)
++
+     ext = f".{ext}" if ext else ""
+     pathname = os.path.join(openssl_lib_dir, f"libcrypto*{ext}")
+     libcrypto = sorted(glob(pathname), key=lambda item: item.count("."), reverse=True)
+-- 
+2.33.1
+
