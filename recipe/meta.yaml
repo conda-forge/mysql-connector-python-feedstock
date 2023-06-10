@@ -16,6 +16,7 @@ source:
     - patches/0004-Fix-indentation-for-common-flags.patch
     - patches/0005-Revert-Fix-MacOS-wheels-platform-tag.patch
     - patches/0006-Replace-google-protobuf-string-with-std-string.patch
+    - patches/0007-Delete-openssl-vendor-ed-libs-only-if-provided.patch
 
 build:
   number: 0
