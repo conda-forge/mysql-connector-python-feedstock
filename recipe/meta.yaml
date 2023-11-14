@@ -19,7 +19,7 @@ source:
     - patches/0007-Delete-openssl-vendor-ed-libs-only-if-provided.patch
 
 build:
-  number: 1
+  number: 2
   # VS 2008 is not supported for libprotobuf
   skip: true  # [win and py2k]
   script: PROTOBUF_INCLUDE_DIR=$PREFIX/include PROTOBUF_LIB_DIR=$PREFIX/lib PROTOC=$BUILD_PREFIX/bin/protoc MYSQL_CAPI=$PREFIX pip install . --no-deps --verbose  # [unix]
