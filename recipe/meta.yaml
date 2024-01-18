@@ -1,6 +1,5 @@
 {% set name = "mysql-connector-python" %}
-{% set version = "8.0.32" %}
-{% set sha256 = "42b951f50e11bd1d04f5b596d9e3c48a5a3379403e5b87ca082b621869eade2e" %}
+{% set version = "8.0.33" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +7,7 @@ package:
 
 source:
   url: https://github.com/mysql/mysql-connector-python/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: d8ca0d74316e966862b6c0de3a7be14021dc5a7b39490dd012cf9b7e24ba8d32
   patches:
     - patches/0001-Typecast-password-to-const-char-explicitly-py3.patch
     - patches/0002-Cast-uint-to-enum-mysql_enum_shutdown_level-explicit.patch
@@ -19,9 +18,7 @@ source:
     - patches/0007-Delete-openssl-vendor-ed-libs-only-if-provided.patch
 
 build:
-  number: 1
-  # VS 2008 is not supported for libprotobuf
-  skip: true  # [win and py2k]
+  number: 0
   script: PROTOBUF_INCLUDE_DIR=$PREFIX/include PROTOBUF_LIB_DIR=$PREFIX/lib PROTOC=$BUILD_PREFIX/bin/protoc MYSQL_CAPI=$PREFIX pip install . --no-deps --verbose  # [unix]
   script: set "PROTOBUF_INCLUDE_DIR=%LIBRARY_INC%" & set "PROTOBUF_LIB_DIR=%LIBRARY_LIB%" & set "PROTOC=%LIBRARY_BIN%/protoc.exe" & set "MYSQL_CAPI=%LIBRARY_PREFIX%" & set "EXTRA_COMPILE_ARGS=/DPROTOBUF_USE_DLLS" & set "SKIP_VENDOR=1" & pip install . --no-deps --verbose  # [win]
 
