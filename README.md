@@ -368,4 +368,5 @@ Feedstock Maintainers
 
 * [@nehaljwani](https://github.com/nehaljwani/)
 * [@synapticarbors](https://github.com/synapticarbors/)
+* [@xhochy](https://github.com/xhochy/)
 
