@@ -18,7 +18,7 @@ source:
     - patches/0007-Delete-openssl-vendor-ed-libs-only-if-provided.patch
 
 build:
-  number: 0
+  number: 1
   script: PROTOBUF_INCLUDE_DIR=$PREFIX/include PROTOBUF_LIB_DIR=$PREFIX/lib PROTOC=$BUILD_PREFIX/bin/protoc MYSQL_CAPI=$PREFIX pip install . --no-deps --verbose  # [unix]
   script: set "PROTOBUF_INCLUDE_DIR=%LIBRARY_INC%" & set "PROTOBUF_LIB_DIR=%LIBRARY_LIB%" & set "PROTOC=%LIBRARY_BIN%/protoc.exe" & set "MYSQL_CAPI=%LIBRARY_PREFIX%" & set "EXTRA_COMPILE_ARGS=/DPROTOBUF_USE_DLLS" & set "SKIP_VENDOR=1" & pip install . --no-deps --verbose  # [win]
 
