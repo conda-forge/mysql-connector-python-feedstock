@@ -35,11 +35,11 @@ requirements:
     - pip
     - mysql-devel {{ version }}
     - libprotobuf
-    - protobuf>=4.21.1,<=4.21.12
+    - protobuf
     - zlib
   run:
     - python
-    - protobuf>=4.21.1,<=4.21.12
+    - protobuf
 
 test:
   requires:
