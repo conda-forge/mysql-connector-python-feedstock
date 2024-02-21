@@ -29,6 +29,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - libprotobuf
+    - pkg-config
   host:
     - python
     - pip
