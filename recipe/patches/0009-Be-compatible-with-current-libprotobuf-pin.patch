@@ -1,0 +1,22 @@
+From d3a86887473b574bc307e656bb7d57c45ea9b962 Mon Sep 17 00:00:00 2001
+From: "Uwe L. Korn" <uwe.korn@quantco.com>
+Date: Wed, 21 Feb 2024 15:03:46 +0100
+Subject: [PATCH 9/9] Be compatible with current libprotobuf pin
+
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 2171bfb..41fb678 100644
+--- a/setup.py
++++ b/setup.py
+@@ -138,7 +138,7 @@ setup(
+     ext_modules=EXTENSIONS,
+     cmdclass=COMMAND_CLASSES,
+     python_requires=">=3.8",
+-    install_requires=["protobuf>=4.21.1,<=4.21.12"],
++    install_requires=[f"protobuf~={os.environ['libprotobuf']}.0"],
+     extras_require={
+         "dns-srv": ["dnspython>=1.16.0,<=2.3.0"],
+         "compression": ["lz4>=2.1.6,<=4.3.2", "zstandard>=0.12.0,<=0.19.0"],
