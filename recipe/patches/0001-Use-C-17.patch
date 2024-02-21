@@ -1,0 +1,22 @@
+From a51a5f6a3df4cb0a79f5cc1abbe1c56fbd22373f Mon Sep 17 00:00:00 2001
+From: "Uwe L. Korn" <uwe.korn@quantco.com>
+Date: Wed, 21 Feb 2024 14:55:36 +0100
+Subject: [PATCH 1/2] Use C++17
+
+---
+ cpydist/__init__.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cpydist/__init__.py b/cpydist/__init__.py
+index 8bb6089..eaa618a 100644
+--- a/cpydist/__init__.py
++++ b/cpydist/__init__.py
+@@ -737,7 +737,7 @@ class BuildExt(build_ext, BaseCommand):
+                 ext.library_dirs.append(self._build_protobuf_lib_dir)
+                 ext.libraries.append("libprotobuf" if os.name == "nt" else "protobuf")
+                 # Add -std=c++11 needed for Protobuf 3.6.1
+-                ext.extra_compile_args.append("-std=c++11")
++                ext.extra_compile_args.append("-std=c++17")
+                 self._run_protoc()
+             if ext.name == "_mysql_connector":
+                 if not self.with_mysql_capi:

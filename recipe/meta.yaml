@@ -16,12 +16,11 @@ source:
     - patches/0005-Revert-Fix-MacOS-wheels-platform-tag.patch
     - patches/0006-Replace-google-protobuf-string-with-std-string.patch
     - patches/0007-Delete-openssl-vendor-ed-libs-only-if-provided.patch
+    - patches/0001-Use-C-17.patch
+    - patches/0002-Be-compatible-with-current-libprotobuf-pin.patch
 
 build:
   number: 0
-  script: PROTOBUF_INCLUDE_DIR=$PREFIX/include PROTOBUF_LIB_DIR=$PREFIX/lib PROTOC=$BUILD_PREFIX/bin/protoc MYSQL_CAPI=$PREFIX pip install . --no-deps --verbose  # [unix]
-  script: set "PROTOBUF_INCLUDE_DIR=%LIBRARY_INC%" & set "PROTOBUF_LIB_DIR=%LIBRARY_LIB%" & set "PROTOC=%LIBRARY_BIN%/protoc.exe" & set "MYSQL_CAPI=%LIBRARY_PREFIX%" & set "EXTRA_COMPILE_ARGS=/DPROTOBUF_USE_DLLS" & set "SKIP_VENDOR=1" & pip install . --no-deps --verbose  # [win]
-
 
 requirements:
   build:
