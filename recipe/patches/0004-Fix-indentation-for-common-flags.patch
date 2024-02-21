@@ -1,17 +1,17 @@
-From 53e6169b235d7c900209b5534bc78344bda135c1 Mon Sep 17 00:00:00 2001
+From 4c061cede5d77f66fd0c626d842020eecd5efaf7 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Tue, 20 Oct 2020 13:16:22 -0400
-Subject: [PATCH 4/6] Fix indentation for common flags
+Subject: [PATCH 04/10] Fix indentation for common flags
 
 ---
  cpydist/__init__.py | 46 ++++++++++++++++++++++-----------------------
  1 file changed, 23 insertions(+), 23 deletions(-)
 
 diff --git a/cpydist/__init__.py b/cpydist/__init__.py
-index 200ed59..9a8ed9a 100644
+index b445944..67094f4 100644
 --- a/cpydist/__init__.py
 +++ b/cpydist/__init__.py
-@@ -674,29 +674,29 @@ class BuildExt(build_ext, BaseCommand):
+@@ -749,29 +749,29 @@ class BuildExt(build_ext, BaseCommand):
                      )
                      disabled.append(ext)
                      continue
@@ -64,6 +64,3 @@ index 200ed59..9a8ed9a 100644
              # Suppress unknown pragmas
              if os.name == "posix":
                  ext.extra_compile_args.append("-Wno-unknown-pragmas")
--- 
-2.33.1
-

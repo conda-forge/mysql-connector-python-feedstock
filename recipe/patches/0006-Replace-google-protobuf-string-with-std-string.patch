@@ -1,7 +1,7 @@
-From b49166b6dad60dcd5f1b0483a5d551230290f273 Mon Sep 17 00:00:00 2001
+From 9c00371dccf9f24f54331262425186317e02b4ac Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 29 May 2022 22:41:00 -0400
-Subject: [PATCH 6/6] Replace google::protobuf::string with std::string
+Subject: [PATCH 06/10] Replace google::protobuf::string with std::string
 
 xref: https://github.com/protocolbuffers/protobuf/issues/9943
 ---
@@ -9,7 +9,7 @@ xref: https://github.com/protocolbuffers/protobuf/issues/9943
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/src/mysqlxpb/mysqlxpb.cc b/src/mysqlxpb/mysqlxpb.cc
-index 8d852a5..1b3aa72 100644
+index 6294050..b2fae0a 100644
 --- a/src/mysqlxpb/mysqlxpb.cc
 +++ b/src/mysqlxpb/mysqlxpb.cc
 @@ -439,14 +439,14 @@ static void AddPyListToMessageRepeatedString(
@@ -30,6 +30,3 @@ index 8d852a5..1b3aa72 100644
            python_cast<std::string>(PyList_GetItem(list, idx))));
      }
    }
--- 
-2.33.1
-
