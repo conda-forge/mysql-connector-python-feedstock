@@ -1,5 +1,5 @@
 {% set name = "mysql-connector-python" %}
-{% set version = "8.0.33" %}
+{% set version = "8.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/mysql/mysql-connector-python/archive/{{ version }}.tar.gz
-  sha256: d8ca0d74316e966862b6c0de3a7be14021dc5a7b39490dd012cf9b7e24ba8d32
+  sha256: 29a7cb0b24a4f5ccda597c211254db8377493e95e36ca4ee05b15dba6e9c6e78
   patches:
     - patches/0001-Typecast-password-to-const-char-explicitly-py3.patch
     - patches/0002-Cast-uint-to-enum-mysql_enum_shutdown_level-explicit.patch
@@ -30,21 +30,22 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - libprotobuf
-
   host:
     - python
     - pip
     - mysql-devel {{ version }}
     - libprotobuf
-    - protobuf >=3.11.0,<=3.20.3
+    - protobuf>=4.21.1,<=4.21.12
     - zlib
-
   run:
     - python
-    - protobuf >=3.11.0,<=3.20.3
-    - dnspython >=1.16.0
+    - protobuf>=4.21.1,<=4.21.12
 
 test:
+  requires:
+    - pip
+  commands:
+    - pip check
   imports:
     - mysql
     - mysql.connector
@@ -58,7 +59,7 @@ about:
   license_family: GPL
   license_file: LICENSE.txt
   summary: Python driver for communicating with MySQL servers
-
+  dev_url: https://github.com/mysql/mysql-connector-python/
   description: |
     MySQL Connector/Python is a standardized database driver for Python
     platforms and development.
