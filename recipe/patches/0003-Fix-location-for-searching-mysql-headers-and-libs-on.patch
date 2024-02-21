@@ -1,7 +1,7 @@
 From 7bfc20bc0b30e0d4b6aca9c60519d829fbc75096 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Tue, 20 Oct 2020 10:56:46 -0400
-Subject: [PATCH 3/9] Fix location for searching mysql headers and libs on
+Subject: [PATCH 03/10] Fix location for searching mysql headers and libs on
  Windows
 
 ---

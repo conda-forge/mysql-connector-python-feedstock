@@ -1,7 +1,7 @@
 From 9c00371dccf9f24f54331262425186317e02b4ac Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sun, 29 May 2022 22:41:00 -0400
-Subject: [PATCH 6/9] Replace google::protobuf::string with std::string
+Subject: [PATCH 06/10] Replace google::protobuf::string with std::string
 
 xref: https://github.com/protocolbuffers/protobuf/issues/9943
 ---

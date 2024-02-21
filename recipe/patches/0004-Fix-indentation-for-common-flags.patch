@@ -1,7 +1,7 @@
 From 4c061cede5d77f66fd0c626d842020eecd5efaf7 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Tue, 20 Oct 2020 13:16:22 -0400
-Subject: [PATCH 4/9] Fix indentation for common flags
+Subject: [PATCH 04/10] Fix indentation for common flags
 
 ---
  cpydist/__init__.py | 46 ++++++++++++++++++++++-----------------------

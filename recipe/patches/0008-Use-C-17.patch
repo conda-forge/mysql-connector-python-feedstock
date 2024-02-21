@@ -1,7 +1,7 @@
 From 93bbfdb0d11478de5bbbe3edc0a4138c7313117c Mon Sep 17 00:00:00 2001
 From: "Uwe L. Korn" <uwe.korn@quantco.com>
 Date: Wed, 21 Feb 2024 14:55:36 +0100
-Subject: [PATCH 8/9] Use C++17
+Subject: [PATCH 08/10] Use C++17
 
 ---
  cpydist/__init__.py | 5 ++++-

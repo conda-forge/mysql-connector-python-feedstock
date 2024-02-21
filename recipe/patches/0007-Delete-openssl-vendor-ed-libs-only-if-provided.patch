@@ -1,7 +1,7 @@
 From 9d146ec7c3acc6cfb50fcf26d0907509ddbafdca Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sat, 10 Jun 2023 09:49:29 +0100
-Subject: [PATCH 7/9] Delete openssl (vendor-ed) libs only if provided
+Subject: [PATCH 07/10] Delete openssl (vendor-ed) libs only if provided
 
 ---
  cpydist/__init__.py | 2 +-

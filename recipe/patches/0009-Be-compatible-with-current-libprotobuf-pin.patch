@@ -1,7 +1,7 @@
 From d3a86887473b574bc307e656bb7d57c45ea9b962 Mon Sep 17 00:00:00 2001
 From: "Uwe L. Korn" <uwe.korn@quantco.com>
 Date: Wed, 21 Feb 2024 15:03:46 +0100
-Subject: [PATCH 9/9] Be compatible with current libprotobuf pin
+Subject: [PATCH 09/10] Be compatible with current libprotobuf pin
 
 ---
  setup.py | 2 +-
