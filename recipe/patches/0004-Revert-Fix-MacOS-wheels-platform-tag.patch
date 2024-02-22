@@ -1,0 +1,33 @@
+From 32119a5b42b083a2a476f435b261ddb7c1291eef Mon Sep 17 00:00:00 2001
+From: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date: Mon, 10 May 2021 07:20:17 -0400
+Subject: [PATCH 4/6] Revert "Fix MacOS wheels platform tag"
+
+This reverts commit d1e89fd3d7391084cdf35b0806cb5d2a4b413654.
+---
+ mysql-connector-python/cpydist/__init__.py | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/mysql-connector-python/cpydist/__init__.py b/mysql-connector-python/cpydist/__init__.py
+index e4e4a5c..35e2018 100644
+--- a/mysql-connector-python/cpydist/__init__.py
++++ b/mysql-connector-python/cpydist/__init__.py
+@@ -38,7 +38,7 @@ import tempfile
+ from glob import glob
+ from pathlib import Path
+ from subprocess import PIPE, Popen, check_call
+-from sysconfig import get_config_vars, get_python_version
++from sysconfig import get_python_version
+ 
+ from setuptools import Command
+ from setuptools.command.build_ext import build_ext
+@@ -68,9 +68,6 @@ version_py = os.path.join("lib", "mysql", "connector", "version.py")
+ with open(version_py, "rb") as fp:
+     exec(compile(fp.read(), version_py, "exec"))
+ 
+-if "MACOSX_DEPLOYMENT_TARGET" in get_config_vars():
+-    get_config_vars()["MACOSX_DEPLOYMENT_TARGET"] = "11.0"
+-
+ COMMON_USER_OPTIONS = [
+     (
+         "byte-code-only",
