@@ -18,12 +18,16 @@ source:
 
 build:
   number: 0
+  # This is used for linking and building some tools but there is no C++ dependency on the final binaries.
+  ignore_run_exports_from:
+    - {{ compiler('cxx') }}
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - pkg-config
   host:
     - python
