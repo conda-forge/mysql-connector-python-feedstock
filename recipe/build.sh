@@ -9,3 +9,4 @@ export MYSQL_CAPI=$PREFIX
 
 pushd mysql-connector-python
 ${PYTHON} -m pip install . --no-deps --verbose
+popd

@@ -43,8 +43,6 @@ test:
   imports:
     - mysql
     - mysql.connector
-    - mysqlx
-    - mysqlx.protobuf
 
 
 about:
