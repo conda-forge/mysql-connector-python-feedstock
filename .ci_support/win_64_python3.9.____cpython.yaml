@@ -4,6 +4,7 @@ channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
+<<<<<<< HEAD
 cxx_compiler:
 - vs2019
 <<<<<<< HEAD
@@ -11,6 +12,8 @@ libprotobuf:
 - 4.25.2
 =======
 >>>>>>> 43806d5 (MNT: Re-rendered with conda-build 3.28.4, conda-smithy 3.30.4, and conda-forge-pinning 2024.02.22.13.57.26)
+=======
+>>>>>>> 4f6b549 (MNT: Re-rendered with conda-build 3.28.4, conda-smithy 3.30.4, and conda-forge-pinning 2024.02.23.09.37.40)
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -19,5 +22,3 @@ python:
 - 3.9.* *_cpython
 target_platform:
 - win-64
-zlib:
-- '1.2'
