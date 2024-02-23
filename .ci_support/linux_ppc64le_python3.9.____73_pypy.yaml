@@ -14,11 +14,6 @@ cxx_compiler_version:
 - '12'
 docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
-<<<<<<< HEAD
-libprotobuf:
-- 4.25.2
-=======
->>>>>>> 43806d5 (MNT: Re-rendered with conda-build 3.28.4, conda-smithy 3.30.4, and conda-forge-pinning 2024.02.22.13.57.26)
 pin_run_as_build:
   python:
     min_pin: x.x
