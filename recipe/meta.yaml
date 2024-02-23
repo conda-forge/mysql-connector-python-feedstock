@@ -1,5 +1,5 @@
 {% set name = "mysql-connector-python" %}
-{% set version = "8.2.0" %}
+{% set version = "8.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,21 +7,20 @@ package:
 
 source:
   url: https://github.com/mysql/mysql-connector-python/archive/{{ version }}.tar.gz
-  sha256: 29a7cb0b24a4f5ccda597c211254db8377493e95e36ca4ee05b15dba6e9c6e78
+  sha256: 968323a49d8100c5660a5f4d1f07a27982de07e6fe6cec21bcd55cfcacc9501e
   patches:
     - patches/0001-Typecast-password-to-const-char-explicitly-py3.patch
-    - patches/0002-Cast-uint-to-enum-mysql_enum_shutdown_level-explicit.patch
-    - patches/0003-Fix-location-for-searching-mysql-headers-and-libs-on.patch
-    - patches/0004-Fix-indentation-for-common-flags.patch
-    - patches/0005-Revert-Fix-MacOS-wheels-platform-tag.patch
-    - patches/0006-Replace-google-protobuf-string-with-std-string.patch
-    - patches/0007-Delete-openssl-vendor-ed-libs-only-if-provided.patch
-    - patches/0008-Use-C-17.patch
-    - patches/0009-Be-compatible-with-current-libprotobuf-pin.patch
-    - patches/0010-Link-to-abseil_dll-on-Windows.patch
+    - patches/0002-Fix-location-for-searching-mysql-headers-and-libs-on.patch
+    - patches/0003-Fix-indentation-for-common-flags.patch
+    - patches/0004-Revert-Fix-MacOS-wheels-platform-tag.patch
+    - patches/0005-Replace-google-protobuf-string-with-std-string.patch
+    - patches/0006-Delete-openssl-vendor-ed-libs-only-if-provided.patch
 
 build:
-  number: 4
+  number: 0
+  # This is used for linking and building some tools but there is no C++ dependency on the final binaries.
+  ignore_run_exports_from:
+    - {{ compiler('cxx') }}
 
 requirements:
   build:
@@ -29,18 +28,14 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - libprotobuf
     - pkg-config
   host:
     - python
     - pip
     - mysql-devel {{ version }}
-    - libprotobuf
-    - protobuf
-    - zlib
+    - zlib  # [linux]
   run:
     - python
-    - protobuf
     - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
 
 test:
@@ -51,8 +46,6 @@ test:
   imports:
     - mysql
     - mysql.connector
-    - mysqlx
-    - mysqlx.protobuf
 
 
 about:
