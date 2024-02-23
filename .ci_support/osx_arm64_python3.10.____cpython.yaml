@@ -12,8 +12,11 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '16'
+<<<<<<< HEAD
 libprotobuf:
 - 4.25.2
+=======
+>>>>>>> 43806d5 (MNT: Re-rendered with conda-build 3.28.4, conda-smithy 3.30.4, and conda-forge-pinning 2024.02.22.13.57.26)
 macos_machine:
 - arm64-apple-darwin20.0.0
 pin_run_as_build:
