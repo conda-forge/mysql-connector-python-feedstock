@@ -9,10 +9,14 @@ channel_sources:
 channel_targets:
 - conda-forge main
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ddc0406 (MNT: Re-rendered with conda-build 3.28.4, conda-smithy 3.30.4, and conda-forge-pinning 2024.02.23.09.37.40)
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '16'
+<<<<<<< HEAD
 <<<<<<< HEAD
 libprotobuf:
 - 4.25.2
@@ -20,6 +24,8 @@ libprotobuf:
 >>>>>>> 43806d5 (MNT: Re-rendered with conda-build 3.28.4, conda-smithy 3.30.4, and conda-forge-pinning 2024.02.22.13.57.26)
 =======
 >>>>>>> 4f6b549 (MNT: Re-rendered with conda-build 3.28.4, conda-smithy 3.30.4, and conda-forge-pinning 2024.02.23.09.37.40)
+=======
+>>>>>>> ddc0406 (MNT: Re-rendered with conda-build 3.28.4, conda-smithy 3.30.4, and conda-forge-pinning 2024.02.23.09.37.40)
 macos_machine:
 - x86_64-apple-darwin13.4.0
 pin_run_as_build:
@@ -30,3 +36,6 @@ python:
 - 3.12.* *_cpython
 target_platform:
 - osx-64
+zip_keys:
+- - c_compiler_version
+  - cxx_compiler_version
