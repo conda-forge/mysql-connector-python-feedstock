@@ -17,7 +17,7 @@ source:
     - patches/0006-Delete-openssl-vendor-ed-libs-only-if-provided.patch
 
 build:
-  number: 0
+  number: 1
   # This is used for linking and building some tools but there is no C++ dependency on the final binaries.
   ignore_run_exports_from:
     - {{ compiler('cxx') }}
