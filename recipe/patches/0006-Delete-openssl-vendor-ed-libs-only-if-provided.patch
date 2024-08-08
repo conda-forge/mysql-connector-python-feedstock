@@ -1,4 +1,4 @@
-From a65dbe175c7f783fcbaaf5e8078a14238f629659 Mon Sep 17 00:00:00 2001
+From 8c092e31ee124ef1f569296d635d4d43322d1270 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Sat, 10 Jun 2023 09:49:29 +0100
 Subject: [PATCH 6/6] Delete openssl (vendor-ed) libs only if provided
@@ -8,10 +8,10 @@ Subject: [PATCH 6/6] Delete openssl (vendor-ed) libs only if provided
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/mysql-connector-python/cpydist/__init__.py b/mysql-connector-python/cpydist/__init__.py
-index 35e2018..68ecba0 100644
+index 32ac1ba..55b5f71 100644
 --- a/mysql-connector-python/cpydist/__init__.py
 +++ b/mysql-connector-python/cpydist/__init__.py
-@@ -234,7 +234,7 @@ class BaseCommand(Command):
+@@ -245,7 +245,7 @@ class BaseCommand(Command):
              vendor_folder = os.path.join(os.getcwd(), self.vendor_folder)
              if os.path.exists(vendor_folder):
                  shutil.rmtree(vendor_folder)
@@ -20,3 +20,6 @@ index 35e2018..68ecba0 100644
                  libssl, libcrypto = self._get_openssl_libs(ext="dll")
                  libraries = ["libmysql.dll", libssl, libcrypto]
                  for filename in libraries:
+-- 
+2.45.2
+
