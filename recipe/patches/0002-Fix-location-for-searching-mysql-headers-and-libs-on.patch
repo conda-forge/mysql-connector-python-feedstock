@@ -1,4 +1,4 @@
-From b30431a2183aac0974d16d3535d22423a80cd0c1 Mon Sep 17 00:00:00 2001
+From 20f1d65aa0847e5cfffc8b09ccc3666b0c036572 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Tue, 20 Oct 2020 10:56:46 -0400
 Subject: [PATCH 2/6] Fix location for searching mysql headers and libs on
@@ -10,10 +10,10 @@ Subject: [PATCH 2/6] Fix location for searching mysql headers and libs on
  2 files changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/mysql-connector-python/cpydist/__init__.py b/mysql-connector-python/cpydist/__init__.py
-index 81c2c02..724a847 100644
+index 25c660e..22820b9 100644
 --- a/mysql-connector-python/cpydist/__init__.py
 +++ b/mysql-connector-python/cpydist/__init__.py
-@@ -541,7 +541,7 @@ class BuildExt(build_ext, BaseCommand):
+@@ -578,7 +578,7 @@ class BuildExt(build_ext, BaseCommand):
              mysql_version = f"{major}.{minor}.{patch}"
          elif os.name == "nt" and os.path.isdir(self.with_mysql_capi):
              mysql_version_h = os.path.join(
@@ -23,7 +23,7 @@ index 81c2c02..724a847 100644
              with open(mysql_version_h, "rb") as fp:
                  for line in fp.readlines():
 diff --git a/mysql-connector-python/cpydist/utils.py b/mysql-connector-python/cpydist/utils.py
-index 1c90bdb..1458d66 100644
+index 4f92384..6b05220 100644
 --- a/mysql-connector-python/cpydist/utils.py
 +++ b/mysql-connector-python/cpydist/utils.py
 @@ -157,7 +157,7 @@ def _mysql_c_api_info_win(mysql_capi):
@@ -48,3 +48,6 @@ index 1c90bdb..1458d66 100644
      LOGGER.debug("connc_64bit: %s", connc_64bit)
      info["arch"] = "x86_64" if connc_64bit else "i386"
      LOGGER.debug("# _mysql_c_api_info_win info: %s", info)
+-- 
+2.45.2
+

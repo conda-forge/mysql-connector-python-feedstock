@@ -1,4 +1,4 @@
-From fb369ef6bd1fe5c073b7dfc5b66a3ae9613b7169 Mon Sep 17 00:00:00 2001
+From df3ef57202be49e977f8d975db09a34de635a663 Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Tue, 20 Oct 2020 13:16:22 -0400
 Subject: [PATCH 3/6] Fix indentation for common flags
@@ -8,10 +8,10 @@ Subject: [PATCH 3/6] Fix indentation for common flags
  1 file changed, 23 insertions(+), 23 deletions(-)
 
 diff --git a/mysql-connector-python/cpydist/__init__.py b/mysql-connector-python/cpydist/__init__.py
-index 724a847..e4e4a5c 100644
+index 22820b9..0f7e05e 100644
 --- a/mysql-connector-python/cpydist/__init__.py
 +++ b/mysql-connector-python/cpydist/__init__.py
-@@ -614,29 +614,29 @@ class BuildExt(build_ext, BaseCommand):
+@@ -651,29 +651,29 @@ class BuildExt(build_ext, BaseCommand):
                      )
                      disabled.append(ext)
                      continue
@@ -64,3 +64,6 @@ index 724a847..e4e4a5c 100644
              # Suppress unknown pragmas
              if os.name == "posix":
                  ext.extra_compile_args.append("-Wno-unknown-pragmas")
+-- 
+2.45.2
+
