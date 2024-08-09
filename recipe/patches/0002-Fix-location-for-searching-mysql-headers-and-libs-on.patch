@@ -1,7 +1,7 @@
-From 20f1d65aa0847e5cfffc8b09ccc3666b0c036572 Mon Sep 17 00:00:00 2001
+From 04f0279c268fc8c72ee6f79695ecdc11bff416db Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Tue, 20 Oct 2020 10:56:46 -0400
-Subject: [PATCH 2/6] Fix location for searching mysql headers and libs on
+Subject: [PATCH 2/5] Fix location for searching mysql headers and libs on
  Windows
 
 ---
@@ -10,10 +10,10 @@ Subject: [PATCH 2/6] Fix location for searching mysql headers and libs on
  2 files changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/mysql-connector-python/cpydist/__init__.py b/mysql-connector-python/cpydist/__init__.py
-index 25c660e..22820b9 100644
+index 2110d7f..2e5f62d 100644
 --- a/mysql-connector-python/cpydist/__init__.py
 +++ b/mysql-connector-python/cpydist/__init__.py
-@@ -578,7 +578,7 @@ class BuildExt(build_ext, BaseCommand):
+@@ -549,7 +549,7 @@ class BuildExt(build_ext, BaseCommand):
              mysql_version = f"{major}.{minor}.{patch}"
          elif os.name == "nt" and os.path.isdir(self.with_mysql_capi):
              mysql_version_h = os.path.join(

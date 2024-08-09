@@ -1,17 +1,17 @@
-From df3ef57202be49e977f8d975db09a34de635a663 Mon Sep 17 00:00:00 2001
+From ff8f7d4b2d44f9e0afa7c117a04fb064fcfdf73d Mon Sep 17 00:00:00 2001
 From: Nehal J Wani <nehaljw.kkd1@gmail.com>
 Date: Tue, 20 Oct 2020 13:16:22 -0400
-Subject: [PATCH 3/6] Fix indentation for common flags
+Subject: [PATCH 3/5] Fix indentation for common flags
 
 ---
  mysql-connector-python/cpydist/__init__.py | 46 +++++++++++-----------
  1 file changed, 23 insertions(+), 23 deletions(-)
 
 diff --git a/mysql-connector-python/cpydist/__init__.py b/mysql-connector-python/cpydist/__init__.py
-index 22820b9..0f7e05e 100644
+index 2e5f62d..5b77d68 100644
 --- a/mysql-connector-python/cpydist/__init__.py
 +++ b/mysql-connector-python/cpydist/__init__.py
-@@ -651,29 +651,29 @@ class BuildExt(build_ext, BaseCommand):
+@@ -622,29 +622,29 @@ class BuildExt(build_ext, BaseCommand):
                      )
                      disabled.append(ext)
                      continue
