@@ -33,6 +33,7 @@ requirements:
   host:
     - python
     - pip
+    - setuptools
     - mysql-devel {{ major_minor }}
     - zlib  # [linux]
   run:
