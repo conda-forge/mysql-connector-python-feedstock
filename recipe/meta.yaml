@@ -1,5 +1,5 @@
 {% set name = "mysql-connector-python" %}
-{% set version = "9.0.0" %}
+{% set version = "9.2.0" %}
 {% set major_minor = ".".join(version.split(".")[:2]) %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/mysql/mysql-connector-python/archive/{{ version }}.tar.gz
-  sha256: 72c75ccb759cee31474906538b3132f3e26bc91d2913b415ea10d699876dbf9c
+  sha256: a6d766ecf83b00386312ce7353feb2baa214e1d57e719b4470d2e2e1c6d51e65
   patches:
     - patches/0001-Typecast-password-to-const-char-explicitly-py3.patch
     - patches/0002-Fix-location-for-searching-mysql-headers-and-libs-on.patch
@@ -35,9 +35,13 @@ requirements:
     - pip
     - setuptools
     - mysql-devel {{ major_minor }}
+    - mysql-client {{ major_minor }}
     - zlib  # [linux]
   run:
     - python
+  run_constrained:
+    # For authentication plugins
+    - mysql-client {{ major_minor }}.*
 
 test:
   requires:
