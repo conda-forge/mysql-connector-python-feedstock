@@ -1,5 +1,5 @@
 {% set name = "mysql-connector-python" %}
-{% set version = "9.2.0" %}
+{% set version = "9.3.0" %}
 {% set major_minor = ".".join(version.split(".")[:2]) %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/mysql/mysql-connector-python/archive/{{ version }}.tar.gz
-  sha256: a6d766ecf83b00386312ce7353feb2baa214e1d57e719b4470d2e2e1c6d51e65
+  sha256: 68b4fab8f4cdfc765228335b28fa9da8e3353dfe77e74d12880d96dd6b9799e9
   patches:
     - patches/0001-Typecast-password-to-const-char-explicitly-py3.patch
     - patches/0002-Fix-location-for-searching-mysql-headers-and-libs-on.patch
@@ -17,7 +17,7 @@ source:
     - patches/0005-Delete-openssl-vendor-ed-libs-only-if-provided.patch
 
 build:
-  number: 1
+  number: 0
   # This is used for linking and building some tools but there is no C++ dependency on the final binaries.
   ignore_run_exports_from:
     - {{ compiler('cxx') }}
