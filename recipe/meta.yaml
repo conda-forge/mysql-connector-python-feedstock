@@ -59,7 +59,6 @@ about:
   license_family: GPL
   license_file: LICENSE.txt
   summary: Python driver for communicating with MySQL servers
-  dev_url: https://github.com/mysql/mysql-connector-python/
   description: |
     MySQL Connector/Python is a standardized database driver for Python
     platforms and development.
