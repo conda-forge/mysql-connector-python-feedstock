@@ -25,7 +25,7 @@ build:
 requirements:
   build:
     - if: build_platform != target_platform
-      then: 
+      then:
         - python
         - cross-python_${{ target_platform }}
     - ${{ compiler('c') }}
@@ -54,7 +54,7 @@ tests:
       imports:
         - mysql
         - mysql.connector
-    pip_check: true
+      pip_check: true
 
 about:
   license: GPL-2.0-or-later WITH Universal-FOSS-exception-1.0
