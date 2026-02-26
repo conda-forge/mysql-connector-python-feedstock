@@ -16,7 +16,6 @@ Documentation: http://dev.mysql.com/doc/connector-python/en/index.html
 MySQL Connector/Python is a standardized database driver for Python
 platforms and development.
 
-
 Current build status
 ====================
 

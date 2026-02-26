@@ -2,8 +2,8 @@ schema_version: 1
 
 context:
   name: mysql-connector-python
-  version: 9.6.0
-  major_minor: ${{ ".".join(version | split(".")[:2]) }}
+  version: "9.6.0"
+  major_minor: "9.6"
 
 package:
   name: ${{ name|lower }}
@@ -36,8 +36,8 @@ requirements:
     - python
     - pip
     - setuptools
-    - mysql-devel ${{ major_minor }}
-    - mysql-client ${{ major_minor }}
+    - mysql-devel ${{ major_minor }}.*
+    - mysql-client ${{ major_minor }}.*
     - if: linux
       then: zlib
   run:
