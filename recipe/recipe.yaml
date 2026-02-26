@@ -3,7 +3,7 @@ schema_version: 1
 context:
   name: mysql-connector-python
   version: "9.6.0"
-  major_minor: "9.6"
+  major_minor: ${{ (version | split('.'))[:2] | join('.') }}
 
 package:
   name: ${{ name|lower }}
