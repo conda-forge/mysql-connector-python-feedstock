@@ -1,0 +1,74 @@
+schema_version: 1
+
+context:
+  name: mysql-connector-python
+  version: "9.6.0"
+  major_minor: ${{ (version | split('.'))[:2] | join('.') }}
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/mysql/mysql-connector-python/archive/${{ version }}.tar.gz
+  sha256: 8d1b2a52a8183bbfee20ac8be0e31a2420504a35f9223badd0756627b5226ecf
+  patches:
+    - patches/0001-Typecast-password-to-const-char-explicitly-py3.patch
+    - patches/0002-Fix-location-for-searching-mysql-headers-and-libs-on.patch
+    - patches/0003-Fix-indentation-for-common-flags.patch
+    - patches/0004-Revert-Fix-MacOS-wheels-platform-tag.patch
+    - patches/0005-Delete-openssl-vendor-ed-libs-only-if-provided.patch
+
+build:
+  number: 1
+
+requirements:
+  build:
+    - if: build_platform != target_platform
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib("c") }}
+    - pkg-config
+  host:
+    - python
+    - pip
+    - setuptools
+    - mysql-devel ${{ major_minor }}.*
+    - mysql-client ${{ major_minor }}.*
+    - if: linux
+      then: zlib
+  run:
+    - python
+  ignore_run_exports:
+    from_package:
+      # This is used for linking and building some tools but there is no C++ dependency on the final binaries.
+      - ${{ compiler('cxx') }}
+  run_constraints:
+    - mysql-client ${{ major_minor }}.*
+
+tests:
+  - python:
+      imports:
+        - mysql
+        - mysql.connector
+      pip_check: true
+
+about:
+  license: GPL-2.0-or-later WITH Universal-FOSS-exception-1.0
+  license_file: LICENSE.txt
+  summary: Python driver for communicating with MySQL servers
+  description: |
+    MySQL Connector/Python is a standardized database driver for Python
+    platforms and development.
+  homepage: https://dev.mysql.com/doc/connector-python/en/
+  repository: https://github.com/mysql/mysql-connector-python
+  documentation: http://dev.mysql.com/doc/connector-python/en/index.html
+
+extra:
+  recipe-maintainers:
+    - synapticarbors
+    - nehaljwani
+    - xhochy
